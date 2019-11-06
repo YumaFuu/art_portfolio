@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
 body {
   width: 50em;
@@ -18,10 +19,11 @@ h2 {
 p {
   font-size: 30px;
 }
-
+ 
 .self-intro p {
   color: #000;
-  background-color:  #FF9900;
+  font-size: 25px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 
 }
 html {
