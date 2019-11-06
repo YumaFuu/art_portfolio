@@ -7,12 +7,16 @@ body {
   text-align: center;
 }
 h1 {
-  color: #FFFFFF;
+  color: #FFF;
   font-size: 100px;
 }
 h2 {
   color: #FFDDFF;
   font-size: 40px;
+}
+
+p {
+  font-size: 30px;
 }
 html {
   background-color: #DB7093;
@@ -20,7 +24,7 @@ html {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #FFF;
 }
 
 .image {
@@ -32,7 +36,7 @@ a {
 }
 .frame .photo {
   display: block;
-  margin: 10px;
+  margin: 30px;
   background: #F08080;
   padding: 10px 10px;
   box-shadow: 0 4px 10px #333;
@@ -41,12 +45,13 @@ a {
 }
 .frame .pin {
   position: absolute;
-  top: -20px;
-  margin: 0;
+  top: -30px;
+  margin: 10;
   padding: 10px;
   background: rgba(255, 255, 245, 0.8);
   box-shadow: 0 2px 4px #555;
   transform: rotate(-5deg);
+  font-size: 30px;
   z-index: 1;
 }
 
