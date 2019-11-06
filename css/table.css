@@ -1,0 +1,34 @@
+.perform-table {
+          width:460px;
+          line-height:1.3em;
+          border:1px solid #ee8aa4;
+          font-size:12px;
+          border-collapse:collapse;
+}
+.perform-table tr td {
+          padding:6px;
+          border:1px #ee8aa4;
+          border-style:solid none none solid;
+}
+
+.perform-table tr.top td {
+          font-weight:bold;
+          color:#ee8aa4;
+          border-top:0px none;
+          background-color:#fce4eb;
+}
+
+.perform-table tr td.left {
+          width:130px;
+          padding:0;
+          border-left:0px none;
+}
+
+.perform-table tr td.left div {
+          text-align:left;
+          padding:5px 30px 5px 5px;
+          font-weight:bold;
+          color:#FFFFFF;
+          background-color:#ee8aa4;
+          border:1px solid white;
+}

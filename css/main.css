@@ -18,6 +18,12 @@ h2 {
 p {
   font-size: 30px;
 }
+
+.self-intro p {
+  color: #000;
+  background-color:  #FF9900;
+
+}
 html {
   background-color: #DB7093;
 }
