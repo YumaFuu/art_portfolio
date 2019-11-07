@@ -35,6 +35,9 @@ p {
   margin-left: 50px;
 }
 
+.performance .year{
+  background: linear-gradient(transparent 80%, orange 80%);
+}
 a {
   text-decoration: none;
   color: #FFF;
