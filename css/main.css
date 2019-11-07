@@ -50,7 +50,7 @@ a {
   position: relative;
   font-weight: bold;
 }
-.frame .photo {
+.frame .panel {
   display: block;
   margin: 30px;
   background: #F08080;
