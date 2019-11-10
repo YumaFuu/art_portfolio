@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>AYANO SITE</title>
+    <%= favicon_link_tag('favicon.ico') %>
+    <meta charset="UTF-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,14 @@
   </head>
 
   <body>
+    <h1 id="ayano-site" ><a href="https://fuyanosite.herokuapp.com">AYANO SITE</a></h1>
+    <div id="wrap" class="cf">
+      <ul>
+        <li><%= link_to "絵", images_pictures_path ,class: "nav-button" %></li>
+        <li><%= link_to "刺繍", images_embroideries_path ,class: "nav-button" %></li>
+        <li><%= link_to "自己紹介", myself_path, class: "nav-button" %></li>
+      </ul>
+    </div>
     <%= yield %>
   </body>
 </html>
