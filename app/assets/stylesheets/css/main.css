@@ -38,7 +38,8 @@ p {
 .performance .year{
   background: linear-gradient(transparent 80%, #666699 80%);
 }
-a {
+
+#ayano-site a {
   text-decoration: none;
   color: #FFF;
 }
@@ -71,6 +72,10 @@ a {
   z-index: 1;
 }
 
+.frame .pin a {
+  text-decoration: none;
+}
+
 .planePath {
   stroke: #D9DADA;
   stroke-width: .1%;
@@ -94,4 +99,16 @@ a {
 
 .fil3 {
   fill: #AEAFB0;
+}
+
+.normal-box3{
+  margin: 1em 0;
+  padding: 1em;
+  background-color: #fff59d;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
+}
+
+.normal-box3 p{
+  margin: 0;
+  padding: 0;
 }

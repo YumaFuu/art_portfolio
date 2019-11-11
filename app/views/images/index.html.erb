@@ -1,0 +1,9 @@
+<% @images.each do |image| %>
+    <div class="frame">
+      <div class="pin"><%= image.name_jp %></div>
+      <p class="panel">
+      <img src="<%= image.image_file %>" class="image" alt="<%= image.name_en %>" >
+      <p>編集する</p>
+      </p>
+    </div>
+<% end %>

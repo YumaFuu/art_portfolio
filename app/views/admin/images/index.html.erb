@@ -1,0 +1,19 @@
+<div class="images">
+  <h2>画像管理</h2>
+  <%= link_to "新規画像登録", new_admin_image_path %>
+  <% @images.each do |image| %>
+    <div class="frame">
+      <div class="pin"> <%= link_to image.name_jp, edit_admin_image_path(image) %></div>
+      <p class="panel">
+      <img src="<%= image.image_file %>" class="image" 
+        alt="<%= image.name_en %>" >
+      </p>
+    </div>
+  <% end %>
+</div>
+<div>
+
+</div>
+  <p> 新規管理者登録: <%= link_to "こちら", admin_singup_path %> </p>
+  <%= link_to "ログアウト", admin_logout_path, method: :delete %>
+</div>

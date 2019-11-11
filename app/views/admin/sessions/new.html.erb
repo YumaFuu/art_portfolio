@@ -1,0 +1,21 @@
+<h2>Log in</h2>
+
+<div class="frame">
+  <div class="pin">ログイン</div>
+  <div class="panel">
+    <%= form_for(:session, url: admin_login_path) do |f| %>
+
+      <p>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </p>
+
+      <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </p>
+
+      <%= f.submit "Log in" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>管理者用ページ</title>
+    <%= favicon_link_tag('favicon.ico') %>
+    <meta charset="UTF-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1 id="ayano-site" ><a href="/admin">管理者用ページ</a></h1>
+    <% if flash[:info].present? %> 
+      <div class="normal-box3"> <%= flash[:info] %> </div>
+    <% end %>
+    <% if logged_in? %>
+      <p>こんにちは, <%= current_admin.name %>さん</p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

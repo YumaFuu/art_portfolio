@@ -1,11 +1,12 @@
 <div class="images">
   <h2>Pictures</h2>
-
-  <div class="frame">
-    <div class="pin">ソフトクリーム</div>
-    <p class="panel">
-      <img src="images/pictures/ice_cream.jpg" class="image" alt="ice_cream" >
-    </p>
-  </div>
-
+  <% @pictures.each do |picture| %>
+    <div class="frame">
+      <div class="pin"><%= picture.name_jp %></div>
+      <p class="panel">
+      <img src="<%= picture.image_file %>" class="image" 
+        alt="<%= picture.name_en %>" >
+      </p>
+    </div>
+  <% end %>
 </div>

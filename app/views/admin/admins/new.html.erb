@@ -1,0 +1,31 @@
+<h2>Sign up</h2>
+
+<div class="frame">
+  <div class="pin">新規管理者</div>
+  <div class="panel">
+    <%= form_for(:admin_params, url: admin_singup_path) do |f| %>
+
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </p>
+
+      <p>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </p>
+
+      <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </p>
+      <p>
+        <%= f.label "password(確認)" %>
+        <%= f.password_field :password_confirmation %>
+      </p>
+
+      <%= f.submit "Sign Up" %>
+    <% end %>
+
+  </div>
+</div>

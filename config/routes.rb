@@ -1,11 +1,24 @@
 Rails.application.routes.draw do
-  get 'myselves/show'
-  get 'myselves_controller/show'
-  root to: 'images#show'
-  resource :images, only: [:show, :new, :creae, :edit, :update, :destroy] do
-    resources :pictures, only: [:index], module: :images
-    resources :embroideries, only: [:index], module: :images
+  root to: 'home#show'
+  resource :home, only: :show
+
+  namespace :images do
+    resources :pictures, only: [:index]
+    resources :embroideries, only: [:index]
   end
 
   resource :myself, only: :show
+
+  namespace :admin do
+    root to: 'sessions#new'
+    get 'login',to: 'sessions#new'
+    post 'login',to: 'sessions#create'
+    delete 'logout',to: 'sessions#destroy'
+
+    get 'singup',to: 'admins#new'
+    post 'singup',to: 'admins#create'
+
+    resources :images
+    resources :myself, only: :show
+  end
 end

@@ -1,0 +1,32 @@
+<h2>new picture</h2>
+
+<div class="frame">
+  <div class="pin">新規画像</div>
+  <div class="panel">
+    <%= form_for(:new_image, url: admin_images_path) do |f| %>
+
+      <p>
+        <%= f.label "画像ファイル" %>
+        <br>
+        <%= f.file_field :image_file %>
+      </p>
+      <p>
+        <%= f.label "作品名" %>
+        <br>
+        <%= f.text_field :name_jp %>
+      </p>
+      <p>
+        <%= f.label "英語名" %>
+        <br>
+        <%= f.text_field :name_en %>
+      </p>
+      <p>
+        <%= f.label "カテゴリー" %>
+        <br>
+        <%= f.select :category, @image_categories %>
+      </p>
+
+      <%= f.submit "完了" %>
+    <% end %>
+  </div>
+</div>
