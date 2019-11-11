@@ -1,6 +1,6 @@
 <div class="images">
   <h2>画像管理</h2>
-  <%= link_to "新規画像登録", new_admin_image_path %>
+  <p> 新規管理者登録: <%= link_to "こちら", new_admin_image_path %> </p>
   <% @images.each do |image| %>
     <div class="frame">
       <div class="pin"> <%= link_to image.name_jp, edit_admin_image_path(image) %></div>
