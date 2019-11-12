@@ -33,3 +33,5 @@ db/seed.rb
 /config/master.key
 
 docker/*
+
+.env
