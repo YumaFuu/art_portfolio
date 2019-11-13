@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_140052) do
     t.string "name_jp"
     t.string "name_en"
     t.integer "category"
-    t.string "image_file"
+    t.binary "image_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

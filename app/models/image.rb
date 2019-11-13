@@ -2,11 +2,9 @@ class Image < ApplicationRecord
   validates :name_jp, presence: true
   validates :name_en, presence: true
   validates :category, presence: true
-  validates :image_file, presence: true
+  validates :image_data, presence: true
 
+  CATEGORY_ENUM = {picture: 0, embroidery: 1, paint: 2}
 
-  CATEGORY_ENUM = {picture: 0, embroidery: 1}
-
-   mount_uploader :image_file, ImageUploader
-   enum category: CATEGORY_ENUM
+  enum category: CATEGORY_ENUM
 end

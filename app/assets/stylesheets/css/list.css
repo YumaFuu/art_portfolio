@@ -18,10 +18,10 @@
         margin-top:20px;
         margin-right:10px;
         float:left;
-        width: 33.33333%;
-        width: calc((100% - 40px) / 3);
-        width: -webkit-calc((100% - 40px) / 3);
-        width: -moz-calc((100% - 40px) / 3);
+        width: 25%;
+        width: calc((100% - 40px) / 4);
+        width: -webkit-calc((100% - 40px) / 4);
+        width: -moz-calc((100% - 40px) / 4);
 }
 a.nav-button {
         display: block;
@@ -32,7 +32,7 @@ a.nav-button {
         border: 2px solid #fff;
         border-radius: 3px;
         transition: .4s;
-        font-size: 30px;
+        font-size: 25px;
 }
 a.nav-button:hover {
         background: #EC407A;
@@ -40,7 +40,7 @@ a.nav-button:hover {
 }
 @media all and (-ms-high-contrast:none){
         #demo-wrap ul.column3 li{
-                width: calc((100% - 20px) / 3);
+                width: calc((100% - 20px) / 4);
         }
 }
 #wrap ul li:last-child {

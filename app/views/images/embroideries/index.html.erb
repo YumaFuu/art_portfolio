@@ -1,12 +1,12 @@
 <div class="images">
   <h2>Embroidery</h2>
 
-  <% @embroideries.each do |embroideries| %>
+  <% @images.each do |images| %>
     <div class="frame">
-      <div class="pin"><%= embroideries.name_jp %></div>
+      <div class="pin"><%= images.name_jp %></div>
       <p class="panel">
-      <img src="<%= embroideries.image_file %>" class="image" 
-        alt="<%= embroideries.name_en %>" >
+      <img src="<%= images.image_file %>" class="image"
+        alt="<%= images.name_en %>" >
       </p>
     </div>
   <% end %>

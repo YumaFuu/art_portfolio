@@ -1,5 +1,5 @@
 class Images::PicturesController < ApplicationController
   def index
-    @pictures = Image.where(category: :picture) 
+    @images = Image.where(category: :picture)
   end
 end
