@@ -4,7 +4,7 @@ class CreateImages < ActiveRecord::Migration[5.2]
       t.string :name_jp
       t.string :name_en
       t.integer :category
-      t.binary :image_data, :limit => 5.megabyte
+      t.string :image_url
 
       t.timestamps
     end

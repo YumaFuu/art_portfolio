@@ -10,7 +10,6 @@ class Admin::ImagesController < AdminController
 
   def create
     new_image = Image.new(create_params_hash)
-    binding.pry
     if new_image.save
       flash[:info] = "新規作成しました"
       redirect_to(admin_images_path)
@@ -50,7 +49,7 @@ class Admin::ImagesController < AdminController
 
   def create_params_hash
     {
-      image_data:  create_params[:image_data].tempfile.read,
+      image_data: create_params[:image_data].tempfile.read,
       name_jp: create_params[:name_jp],
       name_en: create_params[:name_en],
       category: create_params[:category],
