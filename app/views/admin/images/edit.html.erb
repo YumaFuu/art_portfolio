@@ -3,13 +3,9 @@
 <div class="frame">
   <div class="pin">画像編集</div>
   <div class="panel">
-    <%= form_for(:new_image, url: admin_images_path) do |f| %>
+    <%= form_for(@image, url: admin_image_path, :method => :put) do |f| %>
 
-      <p>
-        <%= f.label "画像ファイル" %>
-        <br>
-        <%= f.file_field :image_file %>
-      </p>
+      <img src="<%= @image.image_url %>" class="image" alt="<%= @image.name_en %>" >
       <p>
         <%= f.label "作品名" %>
         <br>
@@ -33,6 +29,11 @@
       <div class="pin">削除</div>
       <p class="panel">
         <%= link_to "この画像を削除", admin_image_path(@image), method: :delete %>
+      </p>
+    </div>
+    <div class="frame">
+      <p class="panel">
+        <%= link_to "画像一覧へ", admin_images_path %>
       </p>
     </div>
 </div>

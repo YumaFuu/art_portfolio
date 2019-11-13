@@ -14,7 +14,7 @@ class Admin::ImagesController < AdminController
       flash[:info] = "新規作成しました"
       redirect_to(admin_images_path)
     else
-      @image_categories = Image::CATEGORY_ENUM.keys
+      @image_catgories = Image::CATEGORY_ENUM.keys
       flash[:info] = "入力情報に誤りがあります"
       render(:new)
     end
@@ -26,8 +26,9 @@ class Admin::ImagesController < AdminController
   end
 
   def update
-    if new_image.save
-      flash[:info] = "新規作成しました"
+    @image = Image.find(params[:id])
+    if @image.update_attributes(update_params)
+      flash[:info] = "更新しました"
       redirect_to(admin_images_path)
     else
       flash[:info] = "入力情報に誤りがあります"
@@ -43,13 +44,20 @@ class Admin::ImagesController < AdminController
 
   private
 
+  def update_params
+    params.require(:image).permit(:name_jp, :name_en, :category)
+  end
+
   def create_params
     params.require(:new_image).permit(:image_data, :name_jp, :name_en, :category)
   end
 
   def create_params_hash
+    image_path = create_params[:image_data].tempfile.path
+    image_url = Gyazo.upload(image_path)
+
     {
-      image_data: create_params[:image_data].tempfile.read,
+      image_url: image_url,
       name_jp: create_params[:name_jp],
       name_en: create_params[:name_en],
       category: create_params[:category],

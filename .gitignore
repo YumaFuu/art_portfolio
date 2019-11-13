@@ -24,9 +24,6 @@ db/seed.rb
 
 /public/assets
 
-
-/public/uploads
-
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.

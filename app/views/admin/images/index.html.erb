@@ -5,8 +5,7 @@
     <div class="frame">
       <div class="pin"> <%= link_to image.name_jp, edit_admin_image_path(image) %></div>
       <p class="panel">
-      <img src="<%= image.image_file %>" class="image" 
-        alt="<%= image.name_en %>" >
+      <img src="<%= image.image_url %>" class="image" alt="<%= image.name_en %>" >
       </p>
     </div>
   <% end %>
