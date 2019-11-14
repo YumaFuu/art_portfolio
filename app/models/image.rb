@@ -4,7 +4,7 @@ class Image < ApplicationRecord
   validates :category, presence: true
   validates :image_url, presence: true
 
-  CATEGORY_ENUM = {picture: 0, embroidery: 1, paint: 2}
+  CATEGORY_ENUM = {picture: 0, embroidery: 1, illustration: 2}
 
   enum category: CATEGORY_ENUM
 end
