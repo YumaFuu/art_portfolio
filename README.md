@@ -1,7 +1,8 @@
 # README
 Portfolio site of an art university student
 
-https://ayanosite.herokuapp.com
-
 ## desc
+- rails
+- mysql
+
 Admin can edit his/her pictures.
