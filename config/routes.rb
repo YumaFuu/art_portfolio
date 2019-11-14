@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :images do
     resources :pictures, only: [:index]
     resources :embroideries, only: [:index]
-    resources :paints, only: [:index]
+    resources :illustrations, only: [:index]
   end
 
   resource :myself, only: :show
