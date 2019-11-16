@@ -11,7 +11,7 @@ class Admin::ImagesController < AdminController
 
   def create
     image = Image.new(create_params_hash)
-    image.order = Image.pluck(:order).compact.max + 1
+    image.order = Image.pluck(:order).compact.max + 1 rescue 100
     if image.save
       update_order(image)
       flash[:info] = "新規作成しました"
@@ -31,7 +31,7 @@ class Admin::ImagesController < AdminController
 
   def update
     @image = Image.find(params[:id])
-    @image.order = Image.pluck(:order).compact.max + 1
+    @image.order = Image.pluck(:order).compact.max + 1 rescue 100
     if @image.update_attributes(update_params_hash)
       update_order(@image)
       flash[:info] = "更新しました"
