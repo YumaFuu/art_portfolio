@@ -3,7 +3,7 @@
 <div class="frame">
   <div class="pin">新規画像</div>
   <div class="panel">
-    <%= form_for(:new_image, url: admin_images_path) do |f| %>
+    <%= form_for(:image, url: admin_images_path) do |f| %>
 
       <p>
         <%= f.label "画像ファイル" %>
@@ -19,6 +19,11 @@
         <%= f.label "英語名" %>
         <br>
         <%= f.text_field :name_en %>
+      </p>
+      <p>
+        <%= f.label "順番" %>
+        <br>
+        <%= f.select :order, @image_count_arr %>
       </p>
       <p>
         <%= f.label "カテゴリー" %>

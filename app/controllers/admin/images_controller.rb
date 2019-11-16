@@ -6,11 +6,14 @@ class Admin::ImagesController < AdminController
 
   def new
     @image_categories = Image::CATEGORY_ENUM.keys
+    @image_count_arr = [*1..Image.all.count]
   end
 
   def create
-    new_image = Image.new(create_params_hash)
-    if new_image.save
+    image = Image.new(create_params_hash)
+    image.order = Image.pluck(:order).compact.max + 1
+    if image.save
+      update_order(image)
       flash[:info] = "新規作成しました"
       redirect_to(admin_images_path)
     else
@@ -22,16 +25,20 @@ class Admin::ImagesController < AdminController
 
   def edit
     @image = Image.find(params[:id])
+    @image_count_arr = [*1..Image.all.count]
     @image_categories = Image::CATEGORY_ENUM.keys
   end
 
   def update
     @image = Image.find(params[:id])
-    if @image.update_attributes(update_params)
+    @image.order = Image.pluck(:order).compact.max + 1
+    if @image.update_attributes(update_params_hash)
+      update_order(@image)
       flash[:info] = "更新しました"
       redirect_to(admin_images_path)
     else
       flash[:info] = "入力情報に誤りがあります"
+      binding.pry
       render(:new)
     end
   end
@@ -44,12 +51,29 @@ class Admin::ImagesController < AdminController
 
   private
 
+  def update_order(image)
+    order = params[:image][:order].to_i
+    Image.where(order: 0...order).each do |image|
+      image.update(order: image.order + 1)
+    end
+    image.update(order: order)
+  end
+
   def update_params
     params.require(:image).permit(:name_jp, :name_en, :category)
   end
 
+  def update_params_hash
+    {
+      name_jp: update_params[:name_jp],
+      name_en: update_params[:name_en],
+      category: update_params[:category],
+    }
+  end
+
+
   def create_params
-    params.require(:new_image).permit(:image_data, :name_jp, :name_en, :category)
+    params.require(:image).permit(:image_data, :name_jp, :name_en, :category)
   end
 
   def create_params_hash

@@ -17,6 +17,11 @@
         <%= f.text_field :name_en %>
       </p>
       <p>
+        <%= f.label "順番" %>
+        <br>
+        <%= f.select :order, @image_count_arr %>
+      </p>
+      <p>
         <%= f.label "カテゴリー" %>
         <br>
         <%= f.select :category, @image_categories %>
