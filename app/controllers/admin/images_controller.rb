@@ -11,7 +11,6 @@ class Admin::ImagesController < AdminController
 
   def create
     image = Image.new(create_params_hash)
-    image.order = Image.pluck(:order).compact.max + 1 rescue 1
     if image.save
       update_order(image)
       flash[:info] = "新規作成しました"
@@ -25,13 +24,12 @@ class Admin::ImagesController < AdminController
 
   def edit
     @image = Image.find(params[:id])
-    @image_count_arr = [*1..Image.all.count]
+    @image_count_arr = [*1..Image.where(category: @image.category).count]
     @image_categories = Image::CATEGORY_ENUM.keys
   end
 
   def update
     @image = Image.find(params[:id])
-    @image.order = Image.pluck(:order).compact.max + 1 rescue 1
     if @image.update_attributes(update_params_hash)
       update_order(@image)
       flash[:info] = "更新しました"
@@ -64,10 +62,12 @@ class Admin::ImagesController < AdminController
   end
 
   def update_params_hash
+    order = Image.pluck(:order).compact.max.+(1) || 1
     {
       name_jp: update_params[:name_jp],
       name_en: update_params[:name_en],
       category: update_params[:category],
+      order: order,
     }
   end
 
@@ -79,12 +79,14 @@ class Admin::ImagesController < AdminController
   def create_params_hash
     image_path = create_params[:image_data].tempfile.path
     image_url = Gyazo.upload(image_path)
+    order = Image.pluck(:order).compact.max.+(1) || 1
 
     {
       image_url: image_url,
       name_jp: create_params[:name_jp],
       name_en: create_params[:name_en],
       category: create_params[:category],
+      order: order,
     }
   end
 end
