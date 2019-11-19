@@ -1,5 +1,5 @@
-class Images::PicturesController < ApplicationController
+class Images::PicturesController < ImagesController
   def index
-    @images = Image.where(category: :picture).order(order: :asc)
+    super(:picture)
   end
 end

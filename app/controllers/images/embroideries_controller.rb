@@ -1,5 +1,5 @@
-class Images::EmbroideriesController < ApplicationController
+class Images::EmbroideriesController < ImagesController
   def index
-    @images = Image.where(category: :embroidery).order(order: :asc)
+    super(:embroidery)
   end
 end

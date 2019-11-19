@@ -4,6 +4,7 @@ class Image < ApplicationRecord
   validates :category, presence: true
   validates :image_url, presence: true
   validates :order, :uniqueness => {:scope => :category}
+  scope :ordered, -> { order(order: :asc) }
 
   CATEGORY_ENUM = {picture: 0, embroidery: 1, illustration: 2}
 
