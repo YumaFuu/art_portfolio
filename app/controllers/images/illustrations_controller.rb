@@ -1,5 +1,5 @@
 class Images::IllustrationsController < ImagesController
   def index
-    super(:illustraion)
+    super(:illustration)
   end
 end
