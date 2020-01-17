@@ -32,3 +32,8 @@
           background-color:#ee8aa4;
           border:1px solid white;
 }
+table th,
+table td {
+  padding: 1em 10px 1em 1em;
+  border-right: 1px solid #bbb;
+}

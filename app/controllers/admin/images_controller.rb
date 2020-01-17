@@ -31,12 +31,11 @@ class Admin::ImagesController < AdminController
   def update
     @image = Image.find(params[:id])
     if @image.update_attributes(update_params_hash)
-      update_order(@image)
+#      update_order(@image)
       flash[:info] = "更新しました"
       redirect_to(admin_images_path)
     else
       flash[:info] = "入力情報に誤りがあります"
-      binding.pry
       render(:new)
     end
   end
@@ -45,6 +44,36 @@ class Admin::ImagesController < AdminController
     Image.find(params[:id]).destroy
     flash[:info] = "消しました"
     redirect_to(admin_images_path)
+  end
+
+  def show_orders
+    @images = Image.all
+  end
+
+  def update_orders
+    image = Image.find(orders_update_params[:image_id])
+    origin_image = Image.find(orders_update_params[:origin_image_id])
+    is_same_category = image.category == origin_image.category
+
+    if is_same_category
+      image_order = origin_image.order.to_i
+      origin_image_order = image.order.to_i
+
+      image.update!(order: image.order * -1)
+      origin_image.update!(order: origin_image.order * -1)
+
+      image.update!(order: image_order)
+      origin_image.update!(order: origin_image_order)
+
+      flash[:info] = "更新しました"
+      redirect_to(update_orders_admin_images_path)
+    else
+      flash[:info] = "カテゴリーが違うよ"
+      @images = Image.all
+      render(:show_orders)
+    end
+
+
   end
 
   private
@@ -88,5 +117,9 @@ class Admin::ImagesController < AdminController
       category: create_params[:category],
       order: order,
     }
+  end
+
+  def orders_update_params
+    params.permit(:origin_image_id, :image_id)
   end
 end

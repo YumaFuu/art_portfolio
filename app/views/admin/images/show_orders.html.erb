@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <td>ID</td>
+    <td>カテゴリー</td>
+    <td>タイトル</td>
+    <td>じゅんばん</td>
+  </tr>
+  <% @images.each do |image| %>
+  <tr>
+    <td><%= image.id %></td>
+    <td><%= image.category %></td>
+    <td><%= image.name_jp %></td>
+    <td><%= image.order %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+<div class="frame">
+  <div class="pin">入れ替えたいやつ</div>
+  <div class="panel">
+
+    <%= form_tag(update_orders_admin_images_path, method: "patch") do %>
+      1個め
+      <%= text_field_tag :image_id %><br>
+      2個め
+      <%= text_field_tag :origin_image_id %><br>
+      <%= submit_tag '実行' %>
+    <% end %>
+  </div>
+</div>

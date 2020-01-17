@@ -19,7 +19,12 @@ Rails.application.routes.draw do
     get 'singup',to: 'admins#new'
     post 'singup',to: 'admins#create'
 
-    resources :images
+    resources :images do
+      collection do
+        get 'update_orders', to: "images#show_orders"
+        patch 'update_orders', to: "images#update_orders"
+      end
+    end
     resources :myself, only: :show
   end
 end
